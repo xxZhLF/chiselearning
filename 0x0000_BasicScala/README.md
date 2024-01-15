@@ -5,6 +5,8 @@
 参考书：《Hand-on Scala Programming》基于 Scalc 2.13.2 介绍。
 - [Home](https://www.handsonscala.com/)
 
+Scala安装：[https://www.scala-lang.org/download/](https://www.scala-lang.org/download/)
+
 创建工程：
 
     +- Hello                 工程根目录
