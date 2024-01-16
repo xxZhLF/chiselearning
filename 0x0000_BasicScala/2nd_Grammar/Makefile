@@ -1,4 +1,4 @@
-TARGET := Example
+TARGET := Fibo
 
 .PHONY: all
 all:

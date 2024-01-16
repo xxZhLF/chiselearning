@@ -29,7 +29,7 @@ class Fibo(stop_at: Int) extends NSIF {
     }
 }
 
-object Example { 
+object Main { 
     def main(args: Array[String]): Unit = {
         val fibo = new Fibo(10)
         fibo.show()

@@ -1,5 +1,5 @@
 import mill._, scalalib._
 
-object Example extends ScalaModule {
+object Fibo extends ScalaModule {
     def scalaVersion = "2.13.12"
 }
