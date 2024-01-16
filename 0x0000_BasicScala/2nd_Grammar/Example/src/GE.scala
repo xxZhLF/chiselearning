@@ -20,7 +20,8 @@ class Fibo(stop_at: Int) extends NSIF {
     def show(): Any = {
         print("Fibo: ")
         for (n <- Run(0, stop_at){
-            (arr, idx) => arr(idx-1) + arr(idx-2)
+            (AnythingIsOk4buff, AnythingIsOk4i) => 
+                AnythingIsOk4buff(AnythingIsOk4i-1) + AnythingIsOk4buff(AnythingIsOk4i-2)
         }){
             print(s"${n} ")
         }
