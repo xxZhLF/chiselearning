@@ -8,9 +8,10 @@ trait ScalaVer extends ScalaModule {
 trait ChiselVer extends ScalaModule {
     override def ivyDeps = Agg(
         ivy"edu.berkeley.cs::chisel3:3.6.0",
-        ivy"edu.berkeley.cs::chiseltest:0.6.2"
+        ivy"edu.berkeley.cs::chiseltest:0.6.2",
         /* Why is this verison of chiseltest? 
            Reaseon is on the release page at version 0.6.2. */
+        ivy"com.sifive::chisel-circt:0.8.0"
     )
     override def scalacPluginIvyDeps = Agg(
         ivy"edu.berkeley.cs:::chisel3-plugin:3.6.0",
@@ -18,4 +19,8 @@ trait ChiselVer extends ScalaModule {
 }
 
 object NoProc extends ScalaModule with ScalaVer with ChiselVer {
+    override def scalacOptions = Seq(
+        "-feature",
+        "-deprecation"
+    )
 }

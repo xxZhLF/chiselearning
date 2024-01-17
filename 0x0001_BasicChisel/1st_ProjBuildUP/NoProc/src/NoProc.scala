@@ -11,5 +11,6 @@ class NoProc extends Module {
 }
 
 object NoProc extends App {
-    (new chisel3.stage.ChiselStage).emitVerilog(new NoProc())
+    // (new chisel3.stage.ChiselStage).emitVerilog(new NoProc())
+    circt.stage.ChiselStage.emitSystemVerilog(new NoProc())
 }
