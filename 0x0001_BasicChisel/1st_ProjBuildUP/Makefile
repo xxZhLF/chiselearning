@@ -1,4 +1,4 @@
-TARGET := NoProcess
+TARGET := NoProc
 
 .PHONY: all
 all:
