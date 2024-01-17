@@ -9,6 +9,8 @@ trait ChiselVer extends ScalaModule {
     override def ivyDeps = Agg(
         ivy"edu.berkeley.cs::chisel3:3.6.0",
         ivy"edu.berkeley.cs::chiseltest:0.6.2"
+        /* Why is this verison of chiseltest? 
+           Reaseon is on the release page at version 0.6.2. */
     )
     override def scalacPluginIvyDeps = Agg(
         ivy"edu.berkeley.cs:::chisel3-plugin:3.6.0",
