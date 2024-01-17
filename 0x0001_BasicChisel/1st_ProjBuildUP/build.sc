@@ -11,7 +11,7 @@ trait ChiselVer extends ScalaModule {
         ivy"edu.berkeley.cs::chiseltest:0.6.2",
         /* Why is this verison of chiseltest? 
            Reaseon is on the release page at version 0.6.2. */
-        ivy"com.sifive::chisel-circt:0.8.0"
+        ivy"com.sifive::chisel-circt:0.8.0" // firtool 1.62.0
     )
     override def scalacPluginIvyDeps = Agg(
         ivy"edu.berkeley.cs:::chisel3-plugin:3.6.0",
