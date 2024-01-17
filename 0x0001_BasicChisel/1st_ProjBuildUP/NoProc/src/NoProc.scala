@@ -1,8 +1,8 @@
-package NoProcess
+package NoProc
 
 import chisel3._
 
-class NoProcess extends Module {
+class NoProc extends Module {
     val io = IO(new Bundle {
         val  in =  Input(UInt(1.W))
         val out = Output(UInt(1.W))

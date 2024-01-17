@@ -14,5 +14,5 @@ trait ChiselVer extends ScalaModule {
     )
 }
 
-object NoProcess extends ScalaModule with ScalaVer with ChiselVer {
+object NoProc extends ScalaModule with ScalaVer with ChiselVer {
 }
