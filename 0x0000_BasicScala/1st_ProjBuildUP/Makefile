@@ -15,3 +15,7 @@ ut:
 .PHONY: as
 as:
 	mill show $(TARGET).assembly
+
+.PHONY: clean
+clean:
+	rm -rf out
