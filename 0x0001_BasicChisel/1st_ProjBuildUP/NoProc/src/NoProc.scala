@@ -9,3 +9,7 @@ class NoProc extends Module {
     })
     io.out := io.in
 }
+
+object NoProc extends App {
+    (new chisel3.stage.ChiselStage).emitVerilog(new NoProc())
+}
