@@ -8,6 +8,10 @@ all:
 run:
 	mill $(TARGET).run
 
+.PHONY: test
+test:
+	mill $(TARGET).test
+
 .PHONY: as
 as:
 	mill show $(TARGET).assembly

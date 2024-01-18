@@ -1,8 +1,8 @@
 import mill._, scalalib._
 
 trait ScalaVer extends ScalaModule {
-    override def scalaVersion = "2.13.10" /* Why is it 2.13.10 here? Because ->
-    https://repo1.maven.org/maven2/edu/berkeley/cs/chisel3-plugin_2.13.10/3.6.0/ */
+    override def scalaVersion = "2.13.10" /* Why is it 2.13.10 here? ->
+    https://mvnrepository.com/artifact/edu.berkeley.cs/chisel3-plugin */
 }
 
 trait ChiselVer extends ScalaModule {
@@ -22,4 +22,10 @@ object NoProc extends ScalaModule with ScalaVer with ChiselVer {
         "-feature",
         "-deprecation"
     )
+    // object test extends ScalaTests with ChiselVer {
+    //     override def ivyDeps = super.ivyDeps() ++ Agg(
+    //         ivy"com.lihaoyi::utest:0.7.11"
+    //     )
+    //     override def testFramework = "utest.runner.Framework"
+    // }
 }
