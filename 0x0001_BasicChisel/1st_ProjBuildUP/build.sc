@@ -20,7 +20,8 @@ trait ChiselVer extends ScalaModule {
 object NoProc extends ScalaModule with ScalaVer with ChiselVer {
     override def scalacOptions = Seq(
         "-feature",
-        "-deprecation"
+        "-deprecation",
+        "-language:reflectiveCalls"
     )
     // object test extends ScalaTests with ChiselVer {
     //     override def ivyDeps = super.ivyDeps() ++ Agg(
