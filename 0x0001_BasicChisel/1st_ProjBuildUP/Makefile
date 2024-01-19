@@ -20,5 +20,4 @@ as:
 clean:
 	rm -rf out
 	rm $(TARGET).anno.json
-	rm $(TARGET).fir
-	rm $(TARGET).v
+	rm $(TARGET).sv
