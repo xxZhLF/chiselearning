@@ -8,8 +8,10 @@ class NoProcTester extends AnyFlatSpec with ChiselScalatestTester {
         test(new NoProc) { c =>
             c.io.in.poke(0.U)
             c.io.out.expect(0.U)
+            c.clock.step()
             c.io.in.poke(1.U)
             c.io.out.expect(1.U)
+            println("Test Complete.")
         }
     }
 }
