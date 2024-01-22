@@ -2,7 +2,7 @@ import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
-class NoProcTester extends AnyFlatSpec with ChiselScalatestTester {
+class ConnectorTester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "NoProc"
     it should "pass" in {
         test(new NoProc) { c =>

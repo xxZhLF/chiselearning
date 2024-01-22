@@ -1,4 +1,4 @@
-TARGET := NoProc
+TARGET := Connector
 
 .PHONY: all
 all:

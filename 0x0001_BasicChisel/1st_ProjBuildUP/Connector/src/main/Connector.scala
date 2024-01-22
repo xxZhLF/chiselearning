@@ -1,8 +1,8 @@
-package NoProc
+package Connector
 
 import chisel3._
 
-class NoProc extends Module {
+class Connector extends Module {
     val io = IO(new Bundle {
         val  in =  Input(UInt(1.W))
         val out = Output(UInt(1.W))
@@ -10,6 +10,6 @@ class NoProc extends Module {
     io.out := io.in
 }
 
-object NoProc extends App {
-    circt.stage.ChiselStage.emitSystemVerilogFile(new NoProc())
+object Main extends App {
+    circt.stage.ChiselStage.emitSystemVerilogFile(new Connector())
 }
