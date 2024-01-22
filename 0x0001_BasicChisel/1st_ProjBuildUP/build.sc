@@ -19,16 +19,25 @@ object Connector extends ScalaModule {
         ivy"edu.berkeley.cs:::chisel3-plugin:3.6.0",
     )
 
-    object test extends ScalaTests{
+    println("xxZh: You can do anything here using Scala.")
+
+    object test extends ScalaTests with TestModule.ScalaTest{
+    /* ChiselTest built on ScalaTest. How 2 Using ScalaTest with mill?
+     * https://www.scalatest.org/user_guide/using_scalatest_with_mill. */
+
+        override def sources = T.sources{
+            super.sources() ++ Seq(
+                PathRef(millSourcePath / "src" / "main" / "Connector.scala"),
+                PathRef(millSourcePath / "test" / "src" / "ConnectorTester.scala"),
+            )/* Refer from https://mill-build.com/mill/Scala_Build_Examples.html */
+        }/* 此处的Scala写法看起来极为别扭，因此Scala语法有待进一步熟悉与提高。 */
 
         override def ivyDeps = super.ivyDeps() ++ Agg(
-            ivy"com.lihaoyi::utest:0.7.11",
+            ivy"org.scalatest::scalatest:3.2.17",
             ivy"edu.berkeley.cs::chiseltest:0.6.2"
             /* Why is this verison of chiseltest? 
-               Reaseon is on the release page at version 0.6.2. */
+             * Reaseon is on the release page at version 0.6.2. */
         )
-
-        override def testFramework = "utest.runner.Framework"
 
     }
 
