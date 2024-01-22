@@ -10,7 +10,6 @@ class ConnectorTester extends AnyFlatSpec with ChiselScalatestTester {
         test(new Connector) { conn =>
             conn.io.in.poke(0.U)
             conn.io.out.expect(0.U)
-            conn.clock.step()
             conn.io.in.poke(1.U)
             conn.io.out.expect(1.U)
             println("Test Complete.")
