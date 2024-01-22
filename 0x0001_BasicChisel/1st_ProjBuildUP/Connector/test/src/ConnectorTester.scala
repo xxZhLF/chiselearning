@@ -5,7 +5,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 class ConnectorTester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "NoProc"
     it should "pass" in {
-        test(new NoProc) { c =>
+        test(new Connector) { c =>
             c.io.in.poke(0.U)
             c.io.out.expect(0.U)
             c.clock.step()
