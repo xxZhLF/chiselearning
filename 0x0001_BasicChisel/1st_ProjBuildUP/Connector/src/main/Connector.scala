@@ -2,9 +2,10 @@ package Connector
 
 import chisel3._
 
-/**
-  * RawMdule doesn't generate clock 
-  * and reset signals automatically */
+/*
+ * RawMdule doesn't generate clock 
+ * and reset signals automatically 
+ * but cause the ChiselTest fail. */
 // class Connector extends RawModule {
 class Connector extends Module {
     val io = IO(new Bundle {
