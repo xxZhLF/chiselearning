@@ -1,7 +1,14 @@
 package Fibo
 
-trait NSIF {
+trait NSIF { /* NonSense InterFace */
+
     var buff: Array[Int]
+
+    val printWrapper = (n: Int, bufsz: Int) => {
+        print(s"${n}")
+        print(if (n == buff(bufsz-1)) "." else ",")
+    }
+
     def Run (begin: Int, end: Int)
             (HowTo: (Array[Int], Int) => Int): Array[Int] = {
         for (i <- Range(begin, end)) {
@@ -16,14 +23,17 @@ trait NSIF {
 }
 
 class Fibo(stop_at: Int) extends NSIF {
+
     override var buff: Array[Int] = new Array[Int](stop_at)
+
     def show(): Any = {
         print("Fibo: ")
-        for (n <- Run(0, stop_at){
+        for (n <- Run(0, stop_at){ 
             (AnythingIsOk4buff, AnythingIsOk4i) => 
-                AnythingIsOk4buff(AnythingIsOk4i-1) + AnythingIsOk4buff(AnythingIsOk4i-2)
+            AnythingIsOk4buff(AnythingIsOk4i-1) + 
+            AnythingIsOk4buff(AnythingIsOk4i-2)
         }){
-            print(s"${n} ")
+            printWrapper(n, stop_at)
         }
         println()
     }
@@ -31,7 +41,7 @@ class Fibo(stop_at: Int) extends NSIF {
 
 object Main { 
     def main(args: Array[String]): Unit = {
-        val fibo = new Fibo(10)
+        val fibo = new Fibo(23)
         fibo.show()
     }
 }
