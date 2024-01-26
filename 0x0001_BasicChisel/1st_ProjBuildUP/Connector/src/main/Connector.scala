@@ -11,7 +11,8 @@ class Connector extends RawModule {
     val io = IO(new Bundle {
         val  in =  Input(UInt(1.W))
         val out = Output(UInt(1.W))
-    })
+    }) /* For  = means Initialize
+          For := means Update    */
     io.out := io.in
 }
 
