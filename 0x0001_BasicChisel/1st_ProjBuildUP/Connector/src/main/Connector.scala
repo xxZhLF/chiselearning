@@ -6,8 +6,8 @@ import chisel3._
  * RawMdule doesn't generate clock 
  * and reset signals automatically 
  * but cause the ChiselTest fail. */
-// class Connector extends RawModule {
-class Connector extends Module {
+class Connector extends RawModule {
+// class Connector extends Module {
     val io = IO(new Bundle {
         val  in =  Input(UInt(1.W))
         val out = Output(UInt(1.W))
