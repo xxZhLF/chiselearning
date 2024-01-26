@@ -41,7 +41,13 @@ class Fibo(stop_at: Int) extends NSIF {
 
 object Main { 
     def main(args: Array[String]): Unit = {
-        val fibo = new Fibo(23)
+        val fibo = new Fibo(23){
+            val useless = "Only Valid Within THIS Object!" 
+            def testFun() = {
+                println(useless)
+            }
+        }
         fibo.show()
+        fibo.testFun()
     }
 }
