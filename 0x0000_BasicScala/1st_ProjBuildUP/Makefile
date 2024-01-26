@@ -8,8 +8,8 @@ all:
 run:
 	mill $(TARGET).run
 
-.PHONY: ut
-ut:
+.PHONY: test
+test:
 	mill $(TARGET).test
 
 .PHONY: as
