@@ -22,8 +22,10 @@ class ConnectorTester extends AnyFlatSpec with ChiselScalatestTester {
         test(new Wrapper4Test).withAnnotations(Seq(WriteVcdAnnotation))  { dut =>
             dut.io.in.poke(0.U)
             dut.io.out.expect(0.U)
+            dut.clock.step()
             dut.io.in.poke(1.U)
             dut.io.out.expect(1.U)
+            dut.clock.step()
             println("Test Complete.")
         }
     }
