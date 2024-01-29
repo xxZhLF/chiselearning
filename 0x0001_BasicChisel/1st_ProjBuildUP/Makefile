@@ -18,6 +18,4 @@ as:
 
 .PHONY: clean
 clean:
-	rm -rf out
-	rm $(TARGET).anno.json
-	rm $(TARGET).sv
+	rm -rf out target HDL test_run_dir
