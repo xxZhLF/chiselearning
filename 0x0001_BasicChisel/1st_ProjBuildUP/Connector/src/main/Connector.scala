@@ -17,5 +17,5 @@ class Connector extends RawModule {
 }
 
 object Main extends App {
-    circt.stage.ChiselStage.emitSystemVerilogFile(new Connector())
+    circt.stage.ChiselStage.emitSystemVerilogFile(new Connector(), Array("--target-dir", "HDL"))
 }
