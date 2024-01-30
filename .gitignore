@@ -13,3 +13,7 @@
 0x0001_BasicChisel/2nd_Multiplexer/HDL
 0x0001_BasicChisel/2nd_Multiplexer/target
 0x0001_BasicChisel/2nd_Multiplexer/test_run_dir
+0x0001_BasicChisel/3rd_Counter/out
+0x0001_BasicChisel/3rd_Counter/HDL
+0x0001_BasicChisel/3rd_Counter/target
+0x0001_BasicChisel/3rd_Counter/test_run_dir
