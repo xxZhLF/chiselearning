@@ -21,7 +21,7 @@ class Wrapper4Test extends Module {
 class MultiplexerTester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "Multiplexer"
     it should "Pass" in {
-        test(new Wrapper4Test).withAnnotations(Seq(WriteVcdAnnotation))  { dut =>
+        test(new Wrapper4Test).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             dut.io.in1.poke(4.U)
             dut.io.in2.poke(7.U)
             dut.io.sel.poke(true.B)

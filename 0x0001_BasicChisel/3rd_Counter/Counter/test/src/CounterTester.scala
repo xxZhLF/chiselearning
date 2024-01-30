@@ -7,7 +7,7 @@ import Counter._
 class CounterTester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "Counter"
     it should "Pass" in {
-        test(new Counter).withAnnotations(Seq(WriteVcdAnnotation))  { dut =>
+        test(new Counter).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             dut.io.init.poke(0.U)
             for (i <- 1 to 512) {
                 dut.clock.step(1)

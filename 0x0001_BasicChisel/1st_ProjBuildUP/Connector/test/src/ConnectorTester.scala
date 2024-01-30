@@ -19,7 +19,7 @@ class Wrapper4Test extends Module {
 class ConnectorTester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "Connector"
     it should "Pass" in {
-        test(new Wrapper4Test).withAnnotations(Seq(WriteVcdAnnotation))  { dut =>
+        test(new Wrapper4Test).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             dut.io.in.poke(0.U)
             dut.io.out.expect(0.U)
             dut.clock.step()
