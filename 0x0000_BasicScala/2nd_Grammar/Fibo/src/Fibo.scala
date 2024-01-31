@@ -12,7 +12,7 @@ trait NSIF { /* NonSense InterFace */
         print(if (n == buff(bufsz-1)) "." else ",")
     }
 
-    /**
+    /** Function value (literal)
       * Define a function with dual Parameter List (PL).
       * + First list contains two parameters, the start
       *   and end of the for loop.
