@@ -21,3 +21,7 @@
 0x0001_BasicChisel/4th_Vector/HDL
 0x0001_BasicChisel/4th_Vector/target
 0x0001_BasicChisel/4th_Vector/test_run_dir
+0x0001_BasicChisel/5th_InlineVerilog/out
+0x0001_BasicChisel/5th_InlineVerilog/HDL
+0x0001_BasicChisel/5th_InlineVerilog/target
+0x0001_BasicChisel/5th_InlineVerilog/test_run_dir
