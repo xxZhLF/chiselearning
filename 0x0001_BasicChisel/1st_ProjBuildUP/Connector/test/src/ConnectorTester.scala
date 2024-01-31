@@ -12,8 +12,12 @@ class Wrapper4Test extends Module {
         val out = Output(UInt(1.W))
     })
     val conn = Module(new Connector)
-    conn.io.in := io.in
-    io.out := conn.io.out
+    if (true){
+        io <> conn.io
+    } else {
+        conn.io.in := io.in
+        io.out := conn.io.out
+    }
 }
 
 class ConnectorTester extends AnyFlatSpec with ChiselScalatestTester {

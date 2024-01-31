@@ -12,10 +12,14 @@ class Wrapper4Test extends Module {
         val out = Output(UInt(8.W))
     })
     val multiplexer = Module(new Multiplexer)
-    multiplexer.io.sel := io.sel
-    multiplexer.io.in1 := io.in1
-    multiplexer.io.in2 := io.in2
-    io.out := multiplexer.io.out
+    if (true) {
+        io <> multiplexer.io
+    } else {
+        multiplexer.io.sel := io.sel
+        multiplexer.io.in1 := io.in1
+        multiplexer.io.in2 := io.in2
+        io.out := multiplexer.io.out
+    }
 }
 
 class MultiplexerTester extends AnyFlatSpec with ChiselScalatestTester {
