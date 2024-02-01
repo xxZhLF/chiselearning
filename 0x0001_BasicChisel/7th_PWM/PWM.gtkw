@@ -1,0 +1,24 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Feb  1 09:01:28 2024
+[*]
+[dumpfile] "/home/xxzhou/chiselearning/0x0001_BasicChisel/7th_PWM/test_run_dir/PWM_should_Pass/PWM.vcd"
+[dumpfile_mtime] "Thu Feb  1 08:59:32 2024"
+[dumpfile_size] 3211
+[savefile] "/home/xxzhou/chiselearning/0x0001_BasicChisel/7th_PWM/PWM.cfg.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-9.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 214
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+PWM.clock
+@24
+PWM.io_duty[7:0]
+@28
+PWM.io_driver
+[pattern_trace] 1
+[pattern_trace] 0
