@@ -25,3 +25,7 @@
 0x0001_BasicChisel/5th_InlineVerilog/HDL
 0x0001_BasicChisel/5th_InlineVerilog/target
 0x0001_BasicChisel/5th_InlineVerilog/test_run_dir
+0x0001_BasicChisel/6th_CondiCheck/out
+0x0001_BasicChisel/6th_CondiCheck/HDL
+0x0001_BasicChisel/6th_CondiCheck/target
+0x0001_BasicChisel/6th_CondiCheck/test_run_dir
