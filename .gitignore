@@ -37,3 +37,7 @@
 0x0001_BasicChisel/8th_FSM/HDL
 0x0001_BasicChisel/8th_FSM/target
 0x0001_BasicChisel/8th_FSM/test_run_dir
+0x0001_BasicChisel/9th_Generator/out
+0x0001_BasicChisel/9th_Generator/HDL
+0x0001_BasicChisel/9th_Generator/target
+0x0001_BasicChisel/9th_Generator/test_run_dir
