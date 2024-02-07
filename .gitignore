@@ -41,3 +41,7 @@
 0x0001_BasicChisel/9th_Generator/HDL
 0x0001_BasicChisel/9th_Generator/target
 0x0001_BasicChisel/9th_Generator/test_run_dir
+0x0002_FIFO/out
+0x0002_FIFO/HDL
+0x0002_FIFO/target
+0x0002_FIFO/test_run_dir
