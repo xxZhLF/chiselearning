@@ -4,7 +4,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 
 import FIFO._
 
-class CounterTester extends AnyFlatSpec with ChiselScalatestTester {
+class FIFOtester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "FIFO"
     it should "Pass" in {
         test(new FIFO(16, 4)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
