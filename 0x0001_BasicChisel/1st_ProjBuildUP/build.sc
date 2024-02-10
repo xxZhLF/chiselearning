@@ -21,16 +21,21 @@ object Connector extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "ConnectorTester.scala"),
+        )/* Refer from https://mill-build.com/mill/Scala_Build_Examples.html */
+    }/* millSourcePath is [~/chiselearning/0x0001_BasicChisel/1st_ProjBuildUP/Connector] */
+
     object test extends ScalaTests with TestModule.ScalaTest{
     /* ChiselTest built on ScalaTest. How 2 Using ScalaTest with mill?
      * https://www.scalatest.org/user_guide/using_scalatest_with_mill. */
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "Connector.scala"),
-                PathRef(millSourcePath / "test" / "src" / "ConnectorTester.scala"),
+                PathRef(millSourcePath / "src" / "ConnectorTester.scala"),
             )/* Refer from https://mill-build.com/mill/Scala_Build_Examples.html */
-        }/* 此处的Scala写法看起来极为别扭，因此Scala语法有待进一步熟悉与提高。 */
+        }/* millSourcePath is [~/chiselearning/0x0001_BasicChisel/1st_ProjBuildUP/Connector/test] */
 
         override def ivyDeps = super.ivyDeps() ++ Agg(
             ivy"org.scalatest::scalatest:3.2.17",

@@ -20,12 +20,17 @@ object Counter extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "Counter.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "Counter.scala"),
-                PathRef(millSourcePath / "test" / "src" / "CounterTester.scala"),
+                PathRef(millSourcePath / "src" / "CounterTester.scala"),
             )
         }
 

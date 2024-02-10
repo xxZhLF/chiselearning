@@ -20,12 +20,17 @@ object Router extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "Router.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "Router.scala"),
-                PathRef(millSourcePath / "test" / "src" / "RouterTester.scala"),
+                PathRef(millSourcePath / "src" / "RouterTester.scala"),
             )
         }
 

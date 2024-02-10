@@ -20,12 +20,17 @@ object FIFO extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "FIFO.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "FIFO.scala"),
-                PathRef(millSourcePath / "test" / "src" / "FIFOtester.scala"),
+                PathRef(millSourcePath / "src" / "FIFOtester.scala"),
             )
         }
 

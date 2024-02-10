@@ -20,12 +20,17 @@ object Multiplexer extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "Multiplexer.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "Multiplexer.scala"),
-                PathRef(millSourcePath / "test" / "src" / "MultiplexerTester.scala"),
+                PathRef(millSourcePath / "src" / "MultiplexerTester.scala"),
             )
         }
 

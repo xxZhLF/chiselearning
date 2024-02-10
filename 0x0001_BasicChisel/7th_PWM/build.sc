@@ -20,12 +20,17 @@ object PWM extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "PWM.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "PWM.scala"),
-                PathRef(millSourcePath / "test" / "src" / "PWMtester.scala"),
+                PathRef(millSourcePath / "src" / "PWMtester.scala"),
             )
         }
 

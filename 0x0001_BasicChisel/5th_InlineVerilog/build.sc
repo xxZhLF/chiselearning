@@ -20,12 +20,17 @@ object AdderHF1bit extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "AdderHF1bit.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "AdderHF1bit.scala"),
-                PathRef(millSourcePath / "test" / "src" / "AdderHF1bitTester.scala"),
+                PathRef(millSourcePath / "src" / "AdderHF1bitTester.scala"),
             )
         }
 

@@ -20,12 +20,17 @@ object Vector extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "Vector.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "Vector.scala"),
-                PathRef(millSourcePath / "test" / "src" / "VectorTester.scala"),
+                PathRef(millSourcePath / "src" / "VectorTester.scala"),
             )
         }
 

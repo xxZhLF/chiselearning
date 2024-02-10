@@ -20,12 +20,17 @@ object TSL /* Traffic Signal Lights */ extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "TSL.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "TSL.scala"),
-                PathRef(millSourcePath / "test" / "src" / "TSLtester.scala"),
+                PathRef(millSourcePath / "src" / "TSLtester.scala"),
             )
         }
 

@@ -20,7 +20,19 @@ object Uart extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "Uart.scala"),
+        )
+    }
+
     object test extends ScalaTests with TestModule.ScalaTest{
+
+        override def sources = T.sources{
+            super.sources() ++ Seq(
+                PathRef(millSourcePath / "src" / "UartTester.scala"),
+            )
+        }
 
         override def ivyDeps = super.ivyDeps() ++ Agg(
             ivy"org.scalatest::scalatest:3.2.17",

@@ -20,12 +20,17 @@ object EnDeCoder extends ScalaModule {
 
     println("xxZh: You can do anything here using Scala.")
 
+    override def sources = T.sources{
+        super.sources() ++ Seq(
+            PathRef(millSourcePath / "src" / "main" / "EnDeCoder.scala"),
+        )
+    }
+    
     object test extends ScalaTests with TestModule.ScalaTest{
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "main" / "EnDeCoder.scala"),
-                PathRef(millSourcePath / "test" / "src" / "EnDeCoderTester.scala"),
+                PathRef(millSourcePath / "src" / "EnDeCoderTester.scala"),
             )
         }
 
