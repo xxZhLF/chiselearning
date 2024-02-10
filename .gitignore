@@ -45,3 +45,7 @@
 0x0002_FIFO/HDL
 0x0002_FIFO/target
 0x0002_FIFO/test_run_dir
+0x0003_Uart/out
+0x0003_Uart/HDL
+0x0003_Uart/target
+0x0003_Uart/test_run_dir
