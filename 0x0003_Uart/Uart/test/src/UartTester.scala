@@ -5,6 +5,25 @@ import org.scalatest.flatspec.AnyFlatSpec
 import Uart._
 
 class Wrapper4Tester extends Module {
+    /**
+      *    +-----------------+       +------------------+  
+      *    |                 |       |                  |  
+      *    |      UART1      |       |       UART2      |  
+      *    |                 |       |                  |  
+      *    | iPort12      tx +-------+ rx       oPort12 |  
+      *    |--------+        |       |         +--------|  
+      *  <-+ ready  |        |       |         |  ready +<-
+      *    |        |        |       |         |        |  
+      *  ->+ valid  |        |       |         |  valid +->
+      *    |        |        |       |         |        |  
+      *  ->+ bit[0] |        |       |         | bit[0] +->
+      *  ->+ bit[1] |        |       |         | bit[1] +->
+      *    ~        |        |       |         |        ~  
+      *  ->+ bit[7] |        |       |         | bit[7] +->
+      *    |--------+        |       |         +--------|  
+      *    |                 |       |                  |  
+      *    +-----------------+       +------------------+  
+      **/
     val io = IO(new Bundle{
         val iPort12 = Flipped(new UartIO)
         val oPort12 = new UartIO
