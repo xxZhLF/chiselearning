@@ -73,13 +73,13 @@ class Rx (freq: Int, baud: Int) extends Module with CalcBaud{
         clkCnt := (clkPerSym(freq, baud) - 1).U
         sftReg := stabRx ## (sftReg >> 1)
         bitCnt := bitCnt - 1.U
-        when (bitCnt === 0.U){
+        when (bitCnt === 1.U){
             isByte := true.B
         }.otherwise{
         }
     }.elsewhen (stabRx === 0.U){
         clkCnt := (clk4Start(freq, baud) - 1).U
-        bitCnt := (8 - 1).U
+        bitCnt := 8.U
     }
 
     when (isByte && io.ch.ready){
