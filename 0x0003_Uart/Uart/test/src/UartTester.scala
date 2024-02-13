@@ -51,17 +51,25 @@ class UartTester extends AnyFlatSpec with ChiselScalatestTester {
         val buff = new StringBuilder
         test(new Wrapper4Tester).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             dut.clock.setTimeout(0)
-            for (ch <- msg.map(ch => ch.U)){
+            def send(ch: Char): Unit = {
+                dut.io.iPort12.valid.poke(false.B)
                 while (dut.io.iPort12.ready.peek().litValue == 0){
                     dut.clock.step()
                 }
-                dut.io.iPort12.bits.poke(ch)
+                dut.io.iPort12.bits.poke(ch.U)
                 dut.io.iPort12.valid.poke(true.B)
-                dut.io.oPort12.ready.poke(true.B)
+            }
+            def recv(): Char = {
+                dut.io.oPort12.ready.poke(false.B)
                 while (dut.io.oPort12.valid.peek().litValue == 0){
                     dut.clock.step()
                 }
-                buff += dut.io.oPort12.bits.peek().litValue.toChar
+                dut.io.oPort12.ready.poke(true.B)
+                dut.io.oPort12.bits.peek().litValue.toChar
+            }
+            for (ch <- msg){
+                send(ch)
+                buff += recv()
             }
         }
         println(buff.toString)
