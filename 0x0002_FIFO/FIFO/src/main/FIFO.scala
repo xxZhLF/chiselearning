@@ -54,7 +54,7 @@ class FIFO(datsz: Int, depth: Int) extends Module{
         val deq = new ReaderIO(datsz)
     })
 
-    val buff = Array.fill(depth) (
+    val buff = Array.fill(depth)(
         Module(new ____FIFO(datsz))
     )
 
