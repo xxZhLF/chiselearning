@@ -1,6 +1,7 @@
 import mill._, scalalib._
 
-object FIFO extends ScalaModule {
+// object FIFO extends ScalaModule {
+object FIFOv2 extends ScalaModule {
 
     override def scalaVersion = "2.13.10" 
 
@@ -22,7 +23,7 @@ object FIFO extends ScalaModule {
 
     override def sources = T.sources{
         super.sources() ++ Seq(
-            PathRef(millSourcePath / "src" / "main" / "FIFO.scala"),
+            PathRef(millSourcePath / "src" / "main" / "FIFOv2.scala"),
         )
     }
 
@@ -30,7 +31,7 @@ object FIFO extends ScalaModule {
 
         override def sources = T.sources{
             super.sources() ++ Seq(
-                PathRef(millSourcePath / "src" / "FIFOtester.scala"),
+                PathRef(millSourcePath / "src" / "FIFOv2Tester.scala"),
             )
         }
 
