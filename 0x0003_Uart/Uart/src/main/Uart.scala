@@ -2,7 +2,6 @@ package Uart
 
 import chisel3._
 import chisel3.util.{DecoupledIO} /** // The defination of "DecoupledIO" is similar to the following
-import javax.swing.InputMap
 * class DecoupledIO[T <: Data](gen: T) extends Bundle { // Type parameter "T", upper bound is "Data".
 *     val ready =  Input(Bool()) // All derived classes of Data can be used as parameter. "gen" is 
 *     val valid = Output(Bool()) // used as parameter of the constructor and type is T. Since "Data" 
@@ -32,6 +31,11 @@ class Tx (freq: Int, baud: Int) extends Module with CalcBaud{
     val sftReg = RegInit("b11_11111111_1".U)
     val clkCnt = RegInit(0.U(32.W))
     val bitCnt = RegInit(0.U(16.W))
+
+    /**
+      * Extend each data bit by N cycles to ensure signal stability.
+      * N is calculated from the frequency and baud. Counted by "clkCnt".
+      **/
 
     when (clkCnt =/= 0.U){
         clkCnt := clkCnt - 1.U
@@ -66,6 +70,14 @@ class Rx (freq: Int, baud: Int) extends Module with CalcBaud{
     val clkCnt = RegInit(0.U(32.W))
     val bitCnt = RegInit(0.U(16.W))
     val isByte = RegInit(false.B)
+
+    /**
+      * The waiting time of the start bit is 1.5 times that of other bits.
+      * So that make "RX" read the signal within the stable range of "TX".
+      * "bitCnt" is set to 8 at the start bit, "RX" receieve 8-bit data,
+      * when "bitCnt" goes from 8 to 1. The last 2 stop bit, since "bitCnt"
+      * is 0, no processing is done. Until next start bit is set to 8.
+      **/
 
     when (clkCnt =/= 0.U){
         clkCnt := clkCnt - 1.U
