@@ -5,7 +5,7 @@ import org.scalatest.flatspec.AnyFlatSpec
 import FIFOv2._
 
 class FIFOv2Tester extends AnyFlatSpec with ChiselScalatestTester {
-    behavior of "FIFO"
+    behavior of "FIFOv2"
     it should "Pass" in {
         test(new FIFOv2(UInt(16.W), 4)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             val base = 10
