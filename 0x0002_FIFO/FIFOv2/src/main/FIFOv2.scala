@@ -3,7 +3,7 @@ package FIFOv2
 import chisel3._
 import chisel3.util.{DecoupledIO}
 
-abstract class ____FIFOv2 [T <: Data](datyp: T, depth: Int) extends Module {
+abstract class UnifiedIF [T <: Data](datyp: T, depth: Int) extends Module {
     val io = IO(new FIFOv2IO(datyp))
 
     assert(depth > 0, "Depth of FIFO must to larger then 0")
@@ -14,7 +14,7 @@ class FIFOv2IO [T <: Data](datyp: T) extends Bundle {
     val deq = new DecoupledIO(datyp)
 }
 
-class FIFOv2 [T <: Data](datyp: T, depth: Int) extends ____FIFOv2 (datyp, depth){
+class FIFOv2 [T <: Data](datyp: T, depth: Int) extends UnifiedIF (datyp, depth){
     private class Buffer extends Module {
         val io = IO(new FIFOv2IO(datyp))
 
