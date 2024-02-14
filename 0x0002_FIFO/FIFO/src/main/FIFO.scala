@@ -14,7 +14,7 @@ class ReaderIO(datsz: Int) extends Bundle {
     val isEmpty = Output(Bool())
 }
 
-class ____FIFO(datsz: Int) extends Module {
+class Buffer(datsz: Int) extends Module {
     val io = IO(new Bundle{
         val enq = new WriterIO(datsz)
         val deq = new ReaderIO(datsz)
@@ -55,7 +55,7 @@ class FIFO(datsz: Int, depth: Int) extends Module{
     })
 
     val buff = Array.fill(depth)(
-        Module(new ____FIFO(datsz))
+        Module(new Buffer(datsz))
     )
 
     for (i <- 1 until depth){

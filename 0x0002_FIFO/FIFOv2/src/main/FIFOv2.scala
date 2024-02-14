@@ -3,20 +3,20 @@ package FIFOv2
 import chisel3._
 import chisel3.util.{DecoupledIO}
 
-abstract class FIFOv2 [T <: Data](datyp: T, depth: Int) extends Module {
-    val io = IO(new FFIO(datyp))
+abstract class ____FIFOv2 [T <: Data](datyp: T, depth: Int) extends Module {
+    val io = IO(new FIFOv2IO(datyp))
 
     assert(depth > 0, "Depth of FIFO must to larger then 0")
 }
 
-class FFIO [T <: Data](datyp: T) extends Bundle {
+class FIFOv2IO [T <: Data](datyp: T) extends Bundle {
     val enq = Flipped(new DecoupledIO(datyp))
     val deq = new DecoupledIO(datyp)
 }
 
-class FIFO [T <: Data](datyp: T, depth: Int) extends FIFOv2 (datyp, depth){
-    private class ____FIFO extends Module {
-        val io = IO(new FFIO(datyp))
+class FIFOv2 [T <: Data](datyp: T, depth: Int) extends ____FIFOv2 (datyp, depth){
+    private class Buffer extends Module {
+        val io = IO(new FIFOv2IO(datyp))
 
         val isFull = RegInit(false.B)
         val data = Reg(datyp)
@@ -40,7 +40,7 @@ class FIFO [T <: Data](datyp: T, depth: Int) extends FIFOv2 (datyp, depth){
     }
 
     private val buff = Array.fill(depth){
-        Module(new ____FIFO)
+        Module(new Buffer)
     }
     
     for (i <- 1 until depth){
@@ -52,5 +52,5 @@ class FIFO [T <: Data](datyp: T, depth: Int) extends FIFOv2 (datyp, depth){
 }
 
 object Main extends App {
-    circt.stage.ChiselStage.emitSystemVerilogFile(new FIFO(UInt(16.W), 4), Array("--target-dir", "HDL"))
+    circt.stage.ChiselStage.emitSystemVerilogFile(new FIFOv2(UInt(16.W), 4), Array("--target-dir", "HDL"))
 }

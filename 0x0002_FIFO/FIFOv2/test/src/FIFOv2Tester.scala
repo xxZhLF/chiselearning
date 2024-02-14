@@ -4,10 +4,10 @@ import org.scalatest.flatspec.AnyFlatSpec
 
 import FIFOv2._
 
-class FIFOtester extends AnyFlatSpec with ChiselScalatestTester {
+class FIFOv2Tester extends AnyFlatSpec with ChiselScalatestTester {
     behavior of "FIFO"
     it should "Pass" in {
-        test(new FIFO(UInt(16.W), 4)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+        test(new FIFOv2(UInt(16.W), 4)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             val base = 10
             for (i <- 0 to 4){
                 if (dut.io.enq.ready.peek().litValue == 0){
@@ -35,7 +35,7 @@ class FIFOtester extends AnyFlatSpec with ChiselScalatestTester {
                 dut.clock.step(2)
             }
         }
-        test(new FIFO(UInt(16.W), 4)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
+        test(new FIFOv2(UInt(16.W), 4)).withAnnotations(Seq(WriteVcdAnnotation)) { dut =>
             val base = 8
             for (i <- 0 to 16){
                 if (dut.io.enq.ready.peek().litValue == 0){
