@@ -1,5 +1,4 @@
-# TARGET := FIFO
-TARGET := FIFOv2
+TARGET := FIFO
 
 .PHONY: all
 all:
