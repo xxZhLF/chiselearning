@@ -25,12 +25,14 @@ object FIFO extends ScalaModule {
             PathRef(millSourcePath / "src" / "main" / "FIFO.scala"),
             PathRef(millSourcePath / os.up / "FIFOv2" / "src" / "main" / "FIFOv2.scala"),
             PathRef(millSourcePath / os.up / "FIFOv3" / "src" / "main" / "FIFOv3.scala"),
+            PathRef(millSourcePath / os.up / "FIFOv4" / "src" / "main" / "FIFOv4.scala"),
         )
     }
 
     // override def mainClass: mill.T[Option[String]] = Some("FIFO.Main")
     // override def mainClass: mill.T[Option[String]] = Some("FIFOv2.Main")
-    override def mainClass: mill.T[Option[String]] = Some("FIFOv3.Main")
+    // override def mainClass: mill.T[Option[String]] = Some("FIFOv3.Main")
+    override def mainClass: mill.T[Option[String]] = Some("FIFOv4.Main")
     
     object test extends ScalaTests with TestModule.ScalaTest{
 
@@ -39,6 +41,7 @@ object FIFO extends ScalaModule {
                 PathRef(millSourcePath / "src" / "FIFOv3Tester.scala"),
                 PathRef(millSourcePath / os.up / os.up / "FIFOv2" / "test" / "src" / "FIFOv2Tester.scala"),
                 PathRef(millSourcePath / os.up / os.up / "FIFOv3" / "test" / "src" / "FIFOv3Tester.scala"),
+                PathRef(millSourcePath / os.up / os.up / "FIFOv4" / "test" / "src" / "FIFOv4Tester.scala"),
             )
         }
 
