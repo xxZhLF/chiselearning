@@ -31,7 +31,6 @@ class FIFOv4Tester extends AnyFlatSpec with ChiselScalatestTester {
                 } else {
                     dut.io.deq.ready.poke(true.B)
                     dut.io.deq.bits.expect((base+i).U)
-                    // println(s"**** ${dut.io.deq.bits.peek()}")
                 }
                 dut.clock.step()
             }
